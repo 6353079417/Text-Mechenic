@@ -11,16 +11,21 @@ export default function FormFile(props) {
     const OnUPcoVerter = () => {
         let ThisOnUpper = (text.toLocaleUpperCase());
         setText(ThisOnUpper);
+        props.showAlert("Converted to Uppercase","success")
     }
 
     const OnDowcoVerter = () => {
         let abcd = (text.toLocaleLowerCase());
         setText(abcd);
+        props.showAlert("Converted to Lowercase","success")
+
     }
 
     const Cleartext = () => {
         let ThisONTextClear = ""
         setText(ThisONTextClear);
+        props.showAlert("Clear Text","success")
+
     }
 
     const SpeakText = () => {
@@ -30,22 +35,22 @@ export default function FormFile(props) {
     }
 
     const handleCopy = () => {
+        navigator.clipboard.writeText(text);
+        props.showAlert("Text Coppied","success")
 
-
-        let demoText = document.getElementById("exampleFormControlTextarea1")
-        demoText.select();
-        navigator.clipboard.writeText(demoText.value);
     }
 
     const handleRemoveSpace = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
+        props.showAlert("Clear Extra Space","success")
+
     }
     return (
         <div>
 
             <div className=" mx-5">
-                <label for="exampleFormControlTextarea1" className="form-label">{props.FTitle}</label>
+                <label for="exampleFormControlTextarea1" className="form-label"><h1 className='my-2'>{props.heading}</h1></label>
                 <textarea  className={` form-control bg-${props.mode === 'light' ? 'light' : 'dark'}
                 text-${props.mode === 'light' ? 'dark' : 'light'}
 
@@ -91,7 +96,7 @@ export default function FormFile(props) {
                 <p>{text.length}Character</p>
                 <p>{0.008 * text.split("").length}Reading Time</p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text.length>0 ? text : "Nothing to Preview 😎"}</p>
             </div>
         </div>
     )

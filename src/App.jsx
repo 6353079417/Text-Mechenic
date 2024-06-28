@@ -29,27 +29,26 @@ function App() {
         document.body.style.color="white"
         setBtnText("Enable light Mode")  
         showAlert("Dark mode has been Enable","success")  ;
-        setInterval(() => {
-          document.title="Chauhan - Dhaval"
-        },100);
-        setInterval(() => {
-          document.title="Chauhan - girishbhai"
-        },100);
+        // setInterval(() => {
+        //   document.title="Chauhan - Dhaval"
+        // },100);
+        // setInterval(() => {
+        //   document.title="Chauhan - dhaval"
+        // },100);
       } else {
         setMode("light");
         document.body.style.background="white";
         document.body.style.color="black";
         setBtnText("Enable Dark Mode");
         showAlert("light Mode Has Been Enable","success");
-        document.title="SIT - satyam bhai"
       }
     }
     
   return (
     <>
-      <Navbar title="SIT" aboutText="Contact Us" mode={mode} toggleMode = {toggleMode} btnText={btnText}/>
+      <Navbar title="Text Mechanical" aboutText="Contact Us" mode={mode} toggleMode = {toggleMode} btnText={btnText}/>
       <Alert alert = {alert}/>
-      <TextForm toggleMode = {toggleMode} mode = {mode} heading="Enter Text to Analyse Below" showAlert={showAlert}/>
+      <TextForm toggleMode = {toggleMode} mode = {mode} heading="Reapair your text here" showAlert={showAlert}/>
     </>
   );
 }
